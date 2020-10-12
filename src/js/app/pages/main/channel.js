@@ -590,7 +590,7 @@ function extractMessage(invalid,type,msg,isHistory,
 		case "satisfactionEvaluation":
 			var time;
 			var closeArrDate = JSON.parse(utils.getStore("closDate")) 
-			console.log(closeArrDate)
+			// console.log(closeArrDate)
 			serviceSessionId = msg.ext.weichat.ctrlArgs.serviceSessionId;
 			var closid = [];
 			// 处理历史消息
@@ -609,7 +609,7 @@ function extractMessage(invalid,type,msg,isHistory,
 			if(closid.indexOf(serviceSessionId) < 0){
 				time = new Date().getTime()
 			}
-			console.log(serviceSessionId)
+			// console.log(serviceSessionId)
 			var isInvalid = new Date().getTime() - time;
 			if(invalid*1000 > isInvalid){
 				inviteId = msg.ext.weichat.ctrlArgs.inviteId;
@@ -1193,7 +1193,7 @@ function _appendMsg(msg, options){
 	}
 	// 设置list主题色
 	var themeName = config.ui.themeName;
-	if(themeName.indexOf("theme_custom") > -1){
+	if(themeName && themeName.indexOf("theme_custom") > -1){
 		var arr = themeName.split("theme_custom");
 		var color = arr[1];
 		var bgColor = $(".theme_custom .bg-hover-color").css("background");
